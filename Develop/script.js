@@ -2,6 +2,13 @@ window.alert('Welcome to the Password Generator');
 
 // Add event listener to generate button
 
+var lowerCases = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCases = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+var specialChars = ["!", "”", "#", "$", "%", "&", "’", "(", ")", "+", ",", "-", ".", "/", ";", "<", "=", ">", "?", "@", "[", "^", "|", "~", "*"];
+var array = [];
+
+
 var generateBtn=document.getElementById('generate')
 generate.addEventListener("click", writePassword);
 
@@ -12,12 +19,7 @@ function writePassword() {
   passwordText.value = password;
     }
 
- //var lowerCases = [a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z];
- var lowerCases = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
- var upperCases = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
- var numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
- var specialChars = ["!", "”", "#", "$", "%", "&", "’", "(", ")", "+", ",", "-", ".", "/", ";", "<", "=", ">", "?", "@", "[", "^", "|", "~", "*"];
- var array = [];
+//-----------------------------------------------------------------
 
 console.log(lowerCases);
 console.log(upperCases);
@@ -25,16 +27,37 @@ console.log(numbers);
 console.log(specialChars);
 console.log(array);
 
-var passLength = window.prompt("please provide length of passowrd you want to keep (between 8 to 128 characters)");
-console.log(passLength);
-
 function generatePassword() {
-   
-      
- if (passLength > 7 && passLength < 129) {
-    window.alert('Password Length Accepted : ' +passLength + ' characters Long'); 
-   
 
+var passLength = parseInt(window.prompt("please provide length of passowrd you want to keep (between 8 to 128 characters)"));
+console.log(passLength);
+//conditional statement if passLength is a number
+   
+     if (Number.isNaN(passLength)) {
+     alert("You need to type numbers");
+    return null;
+       }
+    
+    
+      if (passLength > 7 && passLength < 129) {
+     window.alert('Password Length Accepted : ' +passLength + ' characters Long'); 
+       }
+    else {
+     window.alert("Please provide number between 8 to 128 in order to proceed further");
+       }  
+
+// 
+    var verify4 = confirm("Do you want to include numerics (numbers 0-9)?");
+    if (verify4 === true) {
+    array.push(numbers);
+    console.log(array);
+      //numericCode = numbers[Math.floor((Math.random() * 10))];
+    //console.log(numericCode);
+        }
+   else {
+   numericCode = "null";
+        }
+//
         var verify2 = confirm("Do you want to include lowercase letter (e.g. a,b,c..) ?");
         if (verify2 === true) {
          array.push(lowerCases);
@@ -45,8 +68,7 @@ function generatePassword() {
         else {
          lowerCode = "null";
         }
-         
-  
+//           
         var verify3 = confirm("Do you want to include UPPERCASE letter (e.g. A,B,C.. ) ?");
         if (verify3 === true) {
         array.push(upperCases);
@@ -57,18 +79,8 @@ function generatePassword() {
        else {
        upperCode = "null";
        }
-  
-        var verify4 = confirm("Do you want to include numerics (numbers 0-9)?");
-        if (verify4 === true) {
-        array.push(numbers);
-        console.log(array);
-          //numericCode = numbers[Math.floor((Math.random() * 10))];
-        //console.log(numericCode);
-            }
-       else {
-       numericCode = "null";
-            }
 
+//
         var verify5 = confirm("Do you want to include special characters (e.g. !, #, $ ....?");
         if (verify5 === true) {
         array.push(specialChars);
@@ -79,18 +91,11 @@ function generatePassword() {
        else {
         specialCode = "null";
        }
-    }    
-
-   // I would try and think of how you can use JS looping to push random characters in to a string. 
-   //That way you can make a random password, Although, because you are confused on a few things here,
-   // I would recommend speaking with your instructional staff or a tutor for further help as they are able to live code this with you
-
- else {
-    window.alert("Please provide number between 8 to 128 in order to proceed further");
-     }    
-
-
-  //var array;
+    } 
+     
+   generatePassword();
+  
+  //-------------------------------------------------------------------------------------------------
   var resultArray = [];
 
 for(var i = 0; i < passLength; ++i){
@@ -100,6 +105,18 @@ for(var i = 0; i < passLength; ++i){
    console.log(resultArray.join(""));
 
 
+   
+
+  // for (i > 8, i = passLength) {
+  //   array = i*resultArray;
+ 
+
+
+
+
+
+
+    // I would try and think of how you can use JS looping to push random characters in to a string. 
 
 
    // var functionArray = [lowerCode, upperCode, numericCode, specialCode];
@@ -117,4 +134,3 @@ console.log(password);
 }
 */
 
-}
