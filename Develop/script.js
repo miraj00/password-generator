@@ -18,13 +18,6 @@ console.log(array);
 var passLength = parseInt(window.prompt("please provide length of passowrd you want to keep (between 8 to 128 characters)"));
 console.log(passLength);
 
-//conditional statement if passLength is a number
-
-  if (Number.isNaN(passLength)) {
-  alert("You need to type numbers");
-  // return null;
-      }
-
 
 // Add event listener to generate button -----------------------------
 var generateBtn=document.getElementById('generate')
@@ -32,13 +25,24 @@ generate.addEventListener("click", writePassword);
 
 //1st function to write password -------------------------------------
 function writePassword() {
+
+
+
+
+//conditional statement if passLength is a number
+
+  if (Number.isNaN(passLength)) {
+  alert("You need to type numbers");
+  // return null;
+      }
+
     var password = generatePassword();
     var passwordText = document.querySelector("#password");
     passwordText.value = password;
      }
 
 //2nd function to generate password ----------------------------------
-//function generatePassword() {
+function generatePassword() {
 
       if (passLength > 7 && passLength < 129) {
          window.alert('Password Length Accepted : ' +passLength + ' characters Long'); 
@@ -107,6 +111,12 @@ function writePassword() {
      console.log(filtered.join(''));
 
 
+
+
+
+     function randomElement (array) {
+      return array[Math.floor(Math.random() * array.length)]
+  }
     //step 2:make the resulting array to pluggable in following code      //  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!”#$%&’()+,-./;<=>?@[^|~*'   
 
      var characters = filtered.join('').split(''),
@@ -117,9 +127,9 @@ function writePassword() {
             }
      console.log(result)
    
-  
+}  
  
-//generatePassword();
+generatePassword();
  
 
 
