@@ -84,7 +84,7 @@ function writePassword() {
   var verify5 = confirm("Do you want to include special characters (e.g. !, #, $ ....?");
         if (verify5 === true) {
         array.push(specialChars);
-        console.log(array);
+        var convert1 = console.log(array);
       //specialCode = specialChars[Math.floor((Math.random() * 25))];
        //console.log(specialCode);
          }
@@ -96,6 +96,20 @@ function writePassword() {
     alert("Click on Generate Password Now")
   
   //---this creates result array ----------------------------------------------------------------------------------------------
+  var convert1 = [array[0]+array[1]+array[2]+array[3]] ;
+  console.log(convert1);
+  
+  var filtered = convert1.filter(function(x) {
+    return x !== undefined;
+         });
+
+     console.log(filtered);
+  
+
+
+
+
+  /*
   var resultArray = [];
   console.log(resultArray);
 
@@ -104,9 +118,12 @@ function writePassword() {
        }
       console.log(resultArray.join(""));
 
+*/
+
+
 //pick random values from the resultArrays
 
-console.log(resultArray.join(""));
+
 
 
 // This limits result to show in limit of passLength required by users ---------------
@@ -139,8 +156,8 @@ function randomElement (array) {
 // OOOOORRR ---- use below to create password. just need to bring filtered array on the place of bottow "A.....9"  --------------------------------
 
 
-console.log(array);
-console.log(array.join(''));
+//console.log(array);
+//console.log(array.join(''));
 
 
 //var characters = array.join("").split(''),
@@ -156,12 +173,7 @@ console.log(result)
 
 
 
-var testrun = resultArray().split(''),
-     result = '';
- for (var i = 0; i < passLength; i++) {
-      result += randomElement(testrun)
-          }
-  console.log(result)
+
 
 // for (i > 8, i = passLength) {
   //   array = i*resultArray;
