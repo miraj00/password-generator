@@ -15,8 +15,6 @@ console.log(specialChars);
 console.log(array);
 
 
-var passLength = parseInt(window.prompt("please provide length of passowrd you want to keep (between 8 to 128 characters)"));
-console.log(passLength);
 
 
 // Add event listener to generate button -----------------------------
@@ -26,8 +24,8 @@ generate.addEventListener("click", writePassword);
 //1st function to write password -------------------------------------
 function writePassword() {
 
-
-
+  var passLength = parseInt(window.prompt("please provide length of passowrd you want to keep (between 8 to 128 characters)"));
+console.log(passLength);
 
 //conditional statement if passLength is a number
 
@@ -126,10 +124,10 @@ function generatePassword() {
          result += randomElement(characters)
             }
      console.log(result)
-   
+    return (result);
 }  
  
-generatePassword();
+// generatePassword();
  
 
 
