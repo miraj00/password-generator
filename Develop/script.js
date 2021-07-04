@@ -52,9 +52,7 @@ function writePassword() {
        if (verify4 === true) {
        array.push(numbers);
        console.log(array);
-       //numericCode = numbers[Math.floor((Math.random() * 10))];
-       //console.log(numericCode);
-        }
+         }
         else {
         numericCode = "null";
         }
@@ -63,9 +61,7 @@ function writePassword() {
         if (verify2 === true) {
          array.push(lowerCases);
          console.log(array);
-        //lowerCode = lowerCases[Math.floor((Math.random() * 26))];
-        //console.log(lowerCode);
-          }
+           }
         else {
          lowerCode = "null";
         }
@@ -74,9 +70,7 @@ function writePassword() {
         if (verify3 === true) {
         array.push(upperCases);
         console.log(array);
-          //upperCode = upperCases[Math.floor((Math.random() * 26))];
-        //console.log(upperCode);
-          } 
+           } 
         else {
         upperCode = "null";
         }
@@ -85,53 +79,56 @@ function writePassword() {
         if (verify5 === true) {
         array.push(specialChars);
         var convert1 = console.log(array);
-      //specialCode = specialChars[Math.floor((Math.random() * 25))];
-       //console.log(specialCode);
-         }
+          }
        else {
        specialCode = "null";
        }
   // } 
      
     alert("Click on Generate Password Now")
-  
-  //---this creates result array ----------------------------------------------------------------------------------------------
-  var convert1 = [array[0]+array[1]+array[2]+array[3]] ;
-  console.log(convert1);
-  
-  var filtered = convert1.filter(function(x) {
+
+ //this combines all array into one array ----------------------------------------
+    var newArray = [];
+    newArray.push(array[0],array[1],array[2],array[3]);
+    console.log(newArray);
+
+  //---this filters undefined and presents only remaining value--------------------------
+   
+  var filtered = newArray.filter(function(x) {
     return x !== undefined;
          });
 
-     console.log(filtered);
+         console.log(filtered);
   
+        
+// filtered variable will have 1 to 4 arrays in it.
+
+     // step 1: combine it to single array  
+     console.log(filtered.join(''));
+
+
+    //step 2:make the resulting array to pluggable in following code      //  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!”#$%&’()+,-./;<=>?@[^|~*'   
+
+     var characters = filtered.join('').split(''),
+     result = '';
+ 
+     for (var i = 0; i < passLength; i++) {
+         result += randomElement(characters)
+            }
+     console.log(result)
+   
+  
+ 
+//generatePassword();
+ 
 
 
 
 
-  /*
-  var resultArray = [];
-  console.log(resultArray);
-
-  for(var i = 0; i < passLength; ++i){
-      resultArray.push(array[Math.floor(Math.random()*passLength)]);
-       }
-      console.log(resultArray.join(""));
-
-*/
-
-
-//pick random values from the resultArrays
 
 
 
 
-// This limits result to show in limit of passLength required by users ---------------
-
-function generatePassword() {
-  var password = resultArray.slice(0, passLength);
-  console.log(password);
-  }
 
 
 
@@ -148,10 +145,6 @@ function generatePassword() {
 //console.log(elements.join('-'));
 //         expected output: "Fire-Air-Water"
 
-function randomElement (array) {
-    return array[Math.floor(Math.random() * array.length)]
-}
-
 
 // OOOOORRR ---- use below to create password. just need to bring filtered array on the place of bottow "A.....9"  --------------------------------
 
@@ -162,6 +155,8 @@ function randomElement (array) {
 
 //var characters = array.join("").split(''),
 
+
+/*
 var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!”#$%&’()+,-./;<=>?@[^|~*'.split(''),
 result = '';
  for (var i = 0; i < passLength; i++) {
@@ -169,11 +164,7 @@ result = '';
         }
 console.log(result)
 
-
-
-
-
-
+*/
 
 // for (i > 8, i = passLength) {
   //   array = i*resultArray;
