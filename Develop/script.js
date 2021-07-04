@@ -24,6 +24,14 @@ generate.addEventListener("click", writePassword);
 //1st function to write password -------------------------------------
 function writePassword() {
 
+    var password = generatePassword();
+    var passwordText = document.querySelector("#password");
+    passwordText.value = password;
+     }
+
+//2nd function to generate password ----------------------------------
+function generatePassword() {
+
   var passLength = parseInt(window.prompt("please provide length of passowrd you want to keep (between 8 to 128 characters)"));
 console.log(passLength);
 
@@ -33,14 +41,6 @@ console.log(passLength);
   alert("You need to type numbers");
   // return null;
       }
-
-    var password = generatePassword();
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
-     }
-
-//2nd function to generate password ----------------------------------
-function generatePassword() {
 
       if (passLength > 7 && passLength < 129) {
          window.alert('Password Length Accepted : ' +passLength + ' characters Long'); 
@@ -127,7 +127,6 @@ function generatePassword() {
     return (result);
 }  
  
-// generatePassword();
  
 
 
