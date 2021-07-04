@@ -1,6 +1,4 @@
-window.alert('Welcome to the Password Generator');
-
-
+window.alert('Welcome to the Password Generator!  Click on Generate Password to Proceed further');
 
 var lowerCases = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var upperCases = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
@@ -13,8 +11,6 @@ console.log(upperCases);
 console.log(numbers);
 console.log(specialChars);
 console.log(array);
-
-
 
 
 // Add event listener to generate button -----------------------------
@@ -33,13 +29,13 @@ function writePassword() {
 function generatePassword() {
 
   var passLength = parseInt(window.prompt("please provide length of passowrd you want to keep (between 8 to 128 characters)"));
-console.log(passLength);
+  console.log(passLength);
 
 //conditional statement if passLength is a number
 
   if (Number.isNaN(passLength)) {
   alert("You need to type numbers");
-  // return null;
+   return null;
       }
 
       if (passLength > 7 && passLength < 129) {
@@ -47,7 +43,8 @@ console.log(passLength);
           }
      else {
          window.alert("Please provide number between 8 to 128 in order to proceed further");
-          }  
+        return null;  
+        }  
 
 // 
   var verify4 = confirm("Do you want to include numerics (numbers 0-9)?");
@@ -87,57 +84,42 @@ console.log(passLength);
        }
   // } 
      
-    alert("Click on Generate Password Now")
-
+  if (verify2 === false && verify3 === false && verify4 === false && verify5 === false) {
+    window.alert("You need to choose atleast one option from lowecase, uppercase, numbers or characters to proceed further");
+   return null; 
+      }
+    
  //this combines all array into one array ----------------------------------------
     var newArray = [];
-    newArray.push(array[0],array[1],array[2],array[3]);
+    newArray = newArray.concat(array[0],array[1],array[2],array[3]);
     console.log(newArray);
 
-  //---this filters undefined and presents only remaining value--------------------------
-   
-  var filtered = newArray.filter(function(x) {
-    return x !== undefined;
-         });
+  // this creates randomElement function to be used in for loop -----------------
+    function randomElement (array) {
+    return array[Math.floor(Math.random() * array.length)]
+       }
+    
+ //this creates password of required length using random elements from newArray --------------   
 
-         console.log(filtered);
-  
-        
-// filtered variable will have 1 to 4 arrays in it.
-
-     // step 1: combine it to single array  
-     console.log(filtered.join(''));
-
-
-
-
-
-     function randomElement (array) {
-      return array[Math.floor(Math.random() * array.length)]
-  }
-    //step 2:make the resulting array to pluggable in following code      //  'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!”#$%&’()+,-./;<=>?@[^|~*'   
-
-     var characters = filtered.join('').split(''),
      result = '';
- 
      for (var i = 0; i < passLength; i++) {
-         result += randomElement(characters)
+         result += randomElement(newArray)
             }
      console.log(result)
-    return (result);
+     return (result);
+
 }  
  
  
 
 
+/* My Notes :   //---this filters undefined and presents only remaining value--------------------------
 
-
-
-
-
-
-
-
+   var filtered = newArray.filter(function(x) {
+    return x !== undefined;
+         });
+         console.log(filtered);
+  */
 
 
 
@@ -153,17 +135,8 @@ console.log(passLength);
 //         expected output: "Fire-Air-Water"
 
 
-// OOOOORRR ---- use below to create password. just need to bring filtered array on the place of bottow "A.....9"  --------------------------------
 
-
-//console.log(array);
-//console.log(array.join(''));
-
-
-//var characters = array.join("").split(''),
-
-
-/*
+/* reference code to understand how random elements can be picked -----------
 var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!”#$%&’()+,-./;<=>?@[^|~*'.split(''),
 result = '';
  for (var i = 0; i < passLength; i++) {
@@ -172,22 +145,3 @@ result = '';
 console.log(result)
 
 */
-
-// for (i > 8, i = passLength) {
-  //   array = i*resultArray;
- 
-    // I would try and think of how you can use JS looping to push random characters in to a string. 
-
-
-   // var functionArray = [lowerCode, upperCode, numericCode, specialCode];
-   // console.log(functionArray);
-  //     var r = functionArray.filter(function(i){ return i != "null" })
-  //     console.log(r);
-  
- // password = r;     
-
-
-
-/*
-*/
-
