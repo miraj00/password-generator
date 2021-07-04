@@ -19,6 +19,6 @@ Client requested to create password generator that meets minumum requirements fo
 
 ## Screenshot of the Project outcome as per client request ## 
 
-![Screenshot of web page](assets/images/Screenshot.jpg)
+![Screenshot of web page](images/Screenshot.JPG)
 
 [Please click here to deploy application](https://miraj00.github.io/password-generator/)
